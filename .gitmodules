@@ -1,0 +1,3 @@
+[submodule "hs-to-coq"]
+	path = hs-to-coq
+	url = git@github.com:antalsz/hs-to-coq.git
