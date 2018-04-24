@@ -1,0 +1,9 @@
+# should probably be in base/edits (?)
+rename type GHC.Integer.Type.Integer = GHC.Num.Integer
+
+rename value GHC.Base.quotRemInt = GHC.Real.divMod
+
+in Simple.showInt          termination go      deferred
+in GhcShow.integerToString termination jhead   deferred
+in GhcShow.integerToString termination jblock' deferred
+in GhcShow.integerToString termination jsplitf deferred

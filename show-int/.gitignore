@@ -1,0 +1,16 @@
+# hs-to-coq
+.ghc-tmp
+*.h2ci
+
+# Stack
+.stack-work
+
+# Coq
+*.vo
+*.glob
+.*.aux
+*.v.d
+Makefile.coq.conf
+Makefile.bak
+Makefile.conf
+.lia.cache
