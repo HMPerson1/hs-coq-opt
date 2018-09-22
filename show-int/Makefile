@@ -18,7 +18,7 @@ VFILES   = $(VFILES_GEN) $(VFILES_MAN)
 all: coq
 
 $(VFILES_GEN): %.v : %.hs edits  $(HS_TO_COQ_ROOT)/base/edits
-	$(HS_TO_COQ) -e edits -e $(HS_TO_COQ_ROOT)/base/edits --iface-dir $(HS_TO_COQ_ROOT)/base $< -o .
+	$(HS_TO_COQ) -e edits -e $(HS_TO_COQ_ROOT)/base/edits --iface-dir $(HS_TO_COQ_ROOT)/base --iface-dir $(HS_TO_COQ_ROOT)/base_thy $< -o .
 
 _CoqProject : Makefile
 	> $@
