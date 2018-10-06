@@ -1,10 +1,10 @@
 # should probably be in base/edits (?)
 rename type GHC.Integer.Type.Integer = GHC.Num.Integer
-rename type GHC.Natural.Natural = nat
 
 rename value GHC.Base.quotRemInt = GHC.Real.divMod
 
-in Simple.showInt          termination go      { measure arg_2__ }
+in Simple.showInt          termination go      { measure (BinInt.Z.abs_nat arg_2__) }
+obligations Simple.showInt solve_showInt_termination
 in GhcShow.integerToString termination jhead   deferred
 in GhcShow.integerToString termination jblock' deferred
 in GhcShow.integerToString termination jsplitf deferred
