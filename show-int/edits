@@ -5,6 +5,8 @@ rename value GHC.Base.quotRemInt = GHC.Real.divMod
 
 in Simple.showInt          termination go      { measure (BinInt.Z.abs_nat arg_2__) }
 obligations Simple.showInt solve_showInt_termination
-in GhcShow.integerToString termination jhead   deferred
-in GhcShow.integerToString termination jblock' deferred
-in GhcShow.integerToString termination jsplitf deferred
+
+in GhcShow.integerToString termination jhead   { measure (BinInt.Z.abs_nat n) }
+in GhcShow.integerToString termination jblock' { measure (BinInt.Z.abs_nat d) }
+in GhcShow.integerToString termination jsplitf { measure ((BinInt.Z.abs_nat n) - (BinInt.Z.abs_nat (p-1))) }
+obligations GhcShow.integerToString solve_integerToString_termination

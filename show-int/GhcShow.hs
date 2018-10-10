@@ -35,6 +35,7 @@ integerToString n0 cs0
     -- jsplitb the handles the remaining digits.
     jsplitf :: Integer -> Integer -> [Integer]
     jsplitf p n
+        | p <= 1    = errorWithoutStackTrace "jsplitf {<= 1}"
         | p > n     = [n]
         | otherwise = jsplith p (jsplitf (p*p) n)
 
@@ -91,6 +92,7 @@ integerToString n0 cs0
     jblock' d n cs
         | d == 1    = case unsafeChr (ord '0' + n) of
              c -> c : cs
+        | d < 1     = errorWithoutStackTrace "jblock' {< 1}"
         | otherwise = case unsafeChr (ord '0' + r) of
              c -> jblock' (d - 1) q (c : cs)
         where
