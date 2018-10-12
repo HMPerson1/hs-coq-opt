@@ -9,9 +9,10 @@ showInt i = case compare i 0 of
               GT -> go i []
   where
     go :: Integer -> String -> String
-    go 0 s = s
-    go i s = if i < 0 then "" else
-      let (tens, ones) = i `divMod` 10 in
+    go i s
+      | i == 0    = s
+      | i < 0     = error "go {< 0}"
+      | otherwise = let (tens, ones) = i `divMod` 10 in
         go tens (digit2char ones : s)
 
     digit2char :: Integer -> Char

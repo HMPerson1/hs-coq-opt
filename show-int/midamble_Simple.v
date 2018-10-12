@@ -1,14 +1,14 @@
 Require Omega.
 Import BinInt.
 
-Lemma showInt_go_termination: forall arg_2__ : GHC.Num.Integer,
-  _GHC.Base.==_ arg_2__ 0%Z = false ->
-  _GHC.Base.<_ arg_2__ 0%Z = false ->
-  BinInt.Z.abs_nat (arg_2__ / 10) < BinInt.Z.abs_nat arg_2__.
+Lemma showInt_go_termination: forall i : GHC.Num.Integer,
+  _GHC.Base.==_ i 0%Z = false ->
+  _GHC.Base.<_ i 0%Z = false ->
+  BinInt.Z.abs_nat (i / 10) < BinInt.Z.abs_nat i.
 Proof.
   intros.
-  assert (0 < arg_2__)%Z. {
-    induction arg_2__; try Omega.omega; Coq.Program.Tactics.program_simpl.
+  assert (0 < i)%Z. {
+    destruct i; try Omega.omega; Coq.Program.Tactics.program_simpl.
     apply Pos2Z.is_pos.
   }
   apply Zabs.Zabs_nat_lt. split.

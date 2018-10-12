@@ -3,7 +3,7 @@ rename type GHC.Integer.Type.Integer = GHC.Num.Integer
 
 rename value GHC.Base.quotRemInt = GHC.Real.divMod
 
-in Simple.showInt          termination go      { measure (BinInt.Z.abs_nat arg_2__) }
+in Simple.showInt          termination go      { measure (BinInt.Z.abs_nat i) }
 obligations Simple.showInt solve_showInt_termination
 
 in GhcShow.integerToString termination jhead   { measure (BinInt.Z.abs_nat n) }
